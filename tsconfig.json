@@ -1,8 +1,9 @@
 {
   "ts-node": {
     "compilerOptions": {
-      "module": "commonjs"
-    }
+      "module": "ESNext"
+    },
+    "esm": true
   },
   "compilerOptions": {
     "target": "es2019",
@@ -11,7 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "noEmit": true,
@@ -28,5 +29,18 @@
   "include": [
     "fees/*",
     "dexs/*",
-    "adapters/*", "aggregators/*", "options/*", "incentives/*", "fees/*", "protocols/*", "fees/gmx-v2/gmx-v2.ts", "fees/tigris/index.ts", "fees/xoxno/xoxno.ts"],
+    "adapters/*",
+    "aggregators/*",
+    "options/*",
+    "incentives/*",
+    "fees/*",
+    "protocols/*",
+    "fees/gmx-v2/gmx-v2.ts",
+    "fees/tigris/index.ts",
+    "fees/xoxno/xoxno.ts"
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
 }

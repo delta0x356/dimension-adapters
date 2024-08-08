@@ -309,3 +309,54 @@ adapter.breakdown.v2[CHAIN.APTOS] = {
 }
 
 export default adapter;
+// Add this at the end of the file, after the existing code
+
+async function main() {
+  const currentTimestamp = Math.floor(Date.now() / 1000);
+  const oneDayAgo = currentTimestamp - 86400;
+
+  console.log("Fetching PancakeSwap daily volume...");
+
+  let totalVolume = 0;
+
+  // Fetch v2 volumes
+  for (const chain of Object.keys(adapter.breakdown.v2)) {
+    if (chain !== DISABLED_ADAPTER_KEY && chain !== CHAIN.APTOS) {
+      const result = await adapter.breakdown.v2[chain].fetch({ endTimestamp: oneDayAgo });
+      if (result.dailyVolume) {
+        totalVolume += Number(result.dailyVolume);
+        console.log(`V2 ${chain} daily volume: $${Number(result.dailyVolume).toLocaleString()}`);
+      }
+    }
+  }
+
+  // Fetch v3 volumes
+  for (const chain of Object.keys(adapter.breakdown.v3)) {
+    const result = await adapter.breakdown.v3[chain].fetch({ endTimestamp: oneDayAgo });
+    if (result.dailyVolume) {
+      totalVolume += Number(result.dailyVolume);
+      console.log(`V3 ${chain} daily volume: $${Number(result.dailyVolume).toLocaleString()}`);
+    }
+  }
+
+  // Fetch stableswap volumes
+  for (const chain of Object.keys(adapter.breakdown.stableswap)) {
+    const result = await adapter.breakdown.stableswap[chain].fetch({ endTimestamp: oneDayAgo });
+    if (result.dailyVolume) {
+      totalVolume += Number(result.dailyVolume);
+      console.log(`Stableswap ${chain} daily volume: $${Number(result.dailyVolume).toLocaleString()}`);
+    }
+  }
+
+  // Fetch Aptos volume
+  const aptosResult = await adapter.breakdown.v2[CHAIN.APTOS].fetch({ endTimestamp: oneDayAgo });
+  if (aptosResult.dailyVolume) {
+    totalVolume += Number(aptosResult.dailyVolume);
+    console.log(`Aptos daily volume: $${Number(aptosResult.dailyVolume).toLocaleString()}`);
+  }
+
+  console.log(`\nTotal PancakeSwap daily volume: $${totalVolume.toLocaleString()}`);
+}
+
+// Run the main function
+main().catch(console.error);
