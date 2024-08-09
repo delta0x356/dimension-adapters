@@ -1,0 +1,36 @@
+Running test for timestamp: 1714521600 (2024-05-01)
+yarn run v1.22.22
+warning ../../package.json: No license field
+$ ts-node --esm cli/testAdapter.ts protocols pancakeswap 1714521600
+TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /Users/delta/Documents/dimension-adapters/cli/testAdapter.ts
+    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:160:9)
+    at defaultGetFormat (node:internal/modules/esm/get_format:203:36)
+    at defaultLoad (node:internal/modules/esm/load:143:22)
+    at async nextLoad (node:internal/modules/esm/hooks:866:22)
+    at async nextLoad (node:internal/modules/esm/hooks:866:22)
+    at async Hooks.load (node:internal/modules/esm/hooks:449:20)
+    at async MessagePort.handleMessage (node:internal/modules/esm/worker:196:18) {
+  code: 'ERR_UNKNOWN_FILE_EXTENSION'
+}
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+----------------------------------------
+No volume data found for 2024-05-01
+Running test for timestamp: 1714608000 (2024-05-02)
+yarn run v1.22.22
+warning ../../package.json: No license field
+$ ts-node --esm cli/testAdapter.ts protocols pancakeswap 1714608000
+TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension ".ts" for /Users/delta/Documents/dimension-adapters/cli/testAdapter.ts
+    at Object.getFileProtocolModuleFormat [as file:] (node:internal/modules/esm/get_format:160:9)
+    at defaultGetFormat (node:internal/modules/esm/get_format:203:36)
+    at defaultLoad (node:internal/modules/esm/load:143:22)
+    at async nextLoad (node:internal/modules/esm/hooks:866:22)
+    at async nextLoad (node:internal/modules/esm/hooks:866:22)
+    at async Hooks.load (node:internal/modules/esm/hooks:449:20)
+    at async MessagePort.handleMessage (node:internal/modules/esm/worker:196:18) {
+  code: 'ERR_UNKNOWN_FILE_EXTENSION'
+}
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+----------------------------------------
+No volume data found for 2024-05-02

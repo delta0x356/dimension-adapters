@@ -39,11 +39,11 @@
     "tron-format-address": "^0.1.11"
   },
   "devDependencies": {
-    "@types/node": "^18.7.23",
+    "@types/node": "^22.1.0",
     "glob": "^10.3.10",
     "inquirer": "^8.0.0",
     "inquirer-fuzzy-path": "^2.3.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.0.0"
+    "typescript": "^5.5.4"
   }
 }
